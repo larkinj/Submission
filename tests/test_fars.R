@@ -1,3 +1,5 @@
+library(testthat)
+
 context("Testing Make Filename Function")
 
 filename <- make_filename(2013)

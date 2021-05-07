@@ -17,7 +17,8 @@ Imports:
 	dplyr,
 	readr,
 	tidyr,
-	maps
+	maps,
+	testthat
 Suggests: 
     knitr,
     rmarkdown
