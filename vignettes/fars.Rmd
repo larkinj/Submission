@@ -1,0 +1,34 @@
+---
+title: "Fatality Analysis Reporting System"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{fars}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(Submission)
+```
+
+## Package Details
+The Fatality Analysis Reporting System (FARS) is a nationwide census prepared by the US National Highway Traffic Safety Administration.
+It provides the American public yearly data regarding fatal injuries suffered in motor vehicle traffic crashes.
+
+This package helps to use FARS data in your analysis. Filenames can be created programmatically using the make_filename function:
+```{r}
+farsFile <- file.path("..","data",make_filename(2013))
+```
+
+To load a FAR file use the far_read function:
+```{r}
+head(fars_read(farsFile))
+```
+
