@@ -5,6 +5,8 @@
 
 <!-- badges: start -->
 
+[![Build
+Status](https://travis-ci.org/larkinj/Submission.svg?branch=master)](https://travis-ci.org/larkinj/Submission)
 <!-- badges: end -->
 
 This package is published as part of the Building an R Package coursera

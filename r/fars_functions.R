@@ -9,15 +9,14 @@
 #'
 #' @param filename A character string that represents the location of the FAR file on your computer.
 #'
-#' @return A Tibble containing the information in the FARS file.
-#' @export
-#'
 #' @examples
 #' \dontrun{fars_read("./data/accident_2013.csv.bz2")}
 #'
 #' @importFrom readr read_csv
 #' @importFrom dplyr tbl_df
 #'
+#' @return A Tibble containing the information in the FARS file.
+#' @export
 fars_read <- function(filename) {
         if(!file.exists(filename))
                 stop("file '", filename, "' does not exist")
@@ -34,11 +33,11 @@ fars_read <- function(filename) {
 #'
 #' @param year The integer year that is of interest.
 #'
-#' @return A character string that represents the name of the file that is of interest given the input year.
-#' @export
-#'
 #' @examples
 #' \dontrun{make_filename(2013)}
+#'
+#' @return A character string that represents the name of the file that is of interest given the input year.
+#' @export
 make_filename <- function(year) {
         year <- as.integer(year)
         sprintf("accident_%d.csv.bz2", year)
@@ -56,13 +55,13 @@ make_filename <- function(year) {
 #'
 #' @param years A list of integer years that are of interest.
 #'
-#' @return A Tibble containing the information in a FARS file for each year of interest.
-#' @export
-#'
 #' @examples
 #' \dontrun{fars_read_years(2013:2015)}
 #'
 #' @importFrom dplyr mutate select
+#'
+#' @return A Tibble containing the information in a FARS file for each year of interest.
+#' @export
 fars_read_years <- function(years) {
         lapply(years, function(year) {
                 file <- make_filename(year)
@@ -89,14 +88,14 @@ fars_read_years <- function(years) {
 #'
 #' @param years A list of integer years that are of interest.
 #'
-#' @return A Tibble containing the summarised information. The Tibble will have three columns - year, MONTH, and n.
-#' @export
-#'
 #' @examples
 #' \dontrun{fars_summarize_years(2013:2015)}
 #'
 #' @importFrom dplyr bind_rows group_by summarize
 #' @importFrom tidyr spread
+#'
+#' @return A Tibble containing the summarised information. The Tibble will have three columns - year, MONTH, and n.
+#' @export
 fars_summarize_years <- function(years) {
         dat_list <- fars_read_years(years)
         dplyr::bind_rows(dat_list) %>%
@@ -121,15 +120,15 @@ fars_summarize_years <- function(years) {
 #' @param state.num The numeric identifier of the state that is of interest.
 #' @param year The integer year that is of interest.
 #'
-#' @return A graphic showing a map of the state of interest with the FARS incidents overlaid.
-#' @export
-#'
 #' @examples
 #' \dontrun{fars_map_state(1, 2013)}
 #'
 #' @importFrom dplyr filter
 #' @importFrom maps map
 #' @importFrom graphics points
+#'
+#' @return A graphic showing a map of the state of interest with the FARS incidents overlaid.
+#' @export
 fars_map_state <- function(state.num, year) {
         filename <- make_filename(year)
         data <- fars_read(filename)
