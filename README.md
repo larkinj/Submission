@@ -42,7 +42,7 @@ created programmatically using the make\_filename function:
 
 ``` r
 library(Submission)
-farsFile <- file.path("..","data",make_filename(2013))
+farsFile <- file.path(".","inst","extdata",make_filename(2013))
 ```
 
 To load a FAR file use the far\_read function:

@@ -24,7 +24,7 @@ It provides the American public yearly data regarding fatal injuries suffered in
 
 This package helps to use FARS data in your analysis. Filenames can be created programmatically using the make_filename function:
 ```{r}
-farsFile <- file.path("..","data",make_filename(2013))
+farsFile <- file.path("..","inst","extdata",make_filename(2013))
 ```
 
 To load a FAR file use the far_read function:
