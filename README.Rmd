@@ -1,0 +1,52 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# Submission
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+This package is published as part of the Building an R Package coursera course.
+
+## Installation
+
+You can install the released version of Submission from [CRAN](https://CRAN.R-project.org) with:
+
+``` r
+install.packages("Submission")
+```
+
+And the development version from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("larkinj/Submission")
+```
+## Example
+
+## Package Details
+The Fatality Analysis Reporting System (FARS) is a nationwide census prepared by the US National Highway Traffic Safety Administration.
+It provides the American public yearly data regarding fatal injuries suffered in motor vehicle traffic crashes.
+
+This package helps to use FARS data in your analysis. Filenames can be created programmatically using the make_filename function:
+```{r}
+library(Submission)
+farsFile <- file.path("..","data",make_filename(2013))
+```
+
+To load a FAR file use the far_read function:
+```{r}
+head(fars_read(farsFile))
+```
