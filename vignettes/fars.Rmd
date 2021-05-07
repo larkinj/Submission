@@ -2,7 +2,7 @@
 title: "Fatality Analysis Reporting System"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{fars}
+  %\VignetteIndexEntry{Fatality Analysis Reporting System}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
